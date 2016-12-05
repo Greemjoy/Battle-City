@@ -18,6 +18,7 @@ import Engine.System;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Gref on 30.05.2016.
@@ -39,7 +40,7 @@ public class AISystem extends System {
     @Override
     public void update(double dt) {
         Scene gameScene = GameManager.instance.getCurrentScene();
-        for (Entity e : (ArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
+        for (Entity e : (CopyOnWriteArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
 
             if(!(e.hasComponent(Enemy.class)))continue;
             if(e.hasComponent(Bullet.class))continue;

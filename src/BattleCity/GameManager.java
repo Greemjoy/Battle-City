@@ -16,7 +16,7 @@ public class GameManager {
 
 
     public static final GameManager instance = new GameManager();
-    public static final int WIDTH  = 900;
+    public static final int WIDTH = 900;
     public static final int HEIGHT = 700;
     public AudioManager audioManager = new AudioManager();
 
@@ -24,7 +24,6 @@ public class GameManager {
     private Graphics graphics;
 
     private Scene currentScene;
-
 
 
     private Timer timer = new Timer(10, new ActionListener() {
@@ -40,6 +39,7 @@ public class GameManager {
     }
 
     GameComponent gameComponent = new GameComponent();
+
     public void run() {
         timer.start();
         frame.add(gameComponent);
@@ -52,7 +52,7 @@ public class GameManager {
         currentScene.update(dt);
     }
 
-    public Graphics getGraphics(){
+    public Graphics getGraphics() {
         return graphics;
     }
 
@@ -70,14 +70,12 @@ public class GameManager {
     }
 
 
-
-
     private class GameComponent extends JComponent {
 
         public GameComponent() {
             setFocusable(true);
             requestFocus(true);
-            setBackground(new Color(0,0,0));
+            setBackground(new Color(0, 0, 0));
         }
 
         @Override
@@ -85,7 +83,7 @@ public class GameManager {
             graphics = g;
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
-            g2.setColor(new Color(0,0,0));
+            g2.setColor(new Color(0, 0, 0));
             g2.fillRect(0, 0, GameManager.WIDTH, GameManager.HEIGHT);
             update1((timer.getDelay() / 1000.0));
         }

@@ -11,6 +11,7 @@ import Engine.MathVectors.Vector2i;
 import Engine.Scene;
 import Engine.System;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Gref on 30.05.2016.
@@ -19,7 +20,7 @@ public class GameLogicSystem extends System {
     @Override
     public void update(double dt) {
         Scene gameScene = GameManager.instance.getCurrentScene();
-        for (Entity entity : (ArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
+        for (Entity entity : (CopyOnWriteArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
             if (GameProgress.instance.isNoMoreEnemies()) {
                 for (int i = 0; i < GameProgress.instance.numOfEnemies; i++ ) {
                     gameScene.addEntity(EntitiesFactory.createEnemy(new Vector2i(50 + i * GameProgress.OFFSET, 50)));

@@ -1,13 +1,14 @@
 package Engine;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Gref on 29.05.2016.
  */
 public class Scene {
 
-    private ArrayList<Entity> entities = new ArrayList<>();
+    private CopyOnWriteArrayList<Entity> entities = new CopyOnWriteArrayList<>();
     private ArrayList<System> systems  = new ArrayList<>();
 
     public void addEntity(Entity entity){
@@ -23,7 +24,7 @@ public class Scene {
             s.update(dt);
     }
 
-    public ArrayList<Entity> getEntities(){
+    public CopyOnWriteArrayList<Entity> getEntities(){
         return this.entities;
     }
 

@@ -15,6 +15,8 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 /**
  * Created by Gref on 30.05.2016.
  */
@@ -48,7 +50,7 @@ public class InputSystem extends System implements KeyListener {
 
      //   if(queue.peek() == KeyEvent.VK_ESCAPE) java.lang.System.exit(0);
 
-        for (Entity e : (ArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
+        for (Entity e : (CopyOnWriteArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
             Speed     speed     = e.getComponent(Speed.class);
             Direction direction = e.getComponent(Direction.class);
             Position position   = e.getComponent(Position.class);

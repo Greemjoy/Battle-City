@@ -6,6 +6,7 @@ import Engine.Entity;
 import Engine.System;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Gref on 30.05.2016.
@@ -14,7 +15,7 @@ public class CleanerSystem extends System {
 
     @Override
     public void update(double dt) {
-        for (Entity e : (ArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
+        for (Entity e : (CopyOnWriteArrayList<Entity>)GameManager.instance.getCurrentScene().getEntities().clone()) {
 
             Position position = e.getComponent(Position.class);
 
